@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Onepiecedle</title>
+  <meta name="description" content="Jeu de devinettes One Piece (persos, fruit, citation, silhouette, vidéo)" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="./assets/img/favicon.png" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">☠️</div>
+      <div>
+        <div class="title">Onepiecedle</div>
+        <div class="subtitle">Plusieurs modes • indices • daily</div>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a class="pill" href="./play.html?mode=classic">Classic</a>
+      <a class="pill" href="./play.html?mode=fruit">Fruit du démon</a>
+      <a class="pill" href="./play.html?mode=quote">Citation</a>
+      <a class="pill" href="./play.html?mode=silhouette">Silhouette</a>
+      <a class="pill" href="./play.html?mode=video">Vidéo</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <h1>Choisis un mode</h1>
+      <p>
+        Chaque mode a un perso du jour (daily). Tu as des essais, des indices, et un historique local (dans ton navigateur).
+      </p>
+
+      <div class="grid">
+        <a class="mode" href="./play.html?mode=classic">
+          <div class="modeTitle">Classic</div>
+          <div class="modeDesc">Deviner un personnage (table d’indices).</div>
+          <div class="modeHint">Indices débloqués : Saga (5), Affiliation (10)</div>
+        </a>
+        <a class="mode" href="./play.html?mode=fruit">
+          <div class="modeTitle">Fruit du démon</div>
+          <div class="modeDesc">On te montre un fruit → devine le possesseur.</div>
+          <div class="modeHint">Indices : Type (4), Nom (8)</div>
+        </a>
+        <a class="mode" href="./play.html?mode=quote">
+          <div class="modeTitle">Citation</div>
+          <div class="modeDesc">Une phrase → devine qui l’a dite.</div>
+          <div class="modeHint">Indices : Destinataire(s) (4), Saga (8)</div>
+        </a>
+        <a class="mode" href="./play.html?mode=silhouette">
+          <div class="modeTitle">Silhouette</div>
+          <div class="modeDesc">Perso noir zoomé → chaque essai dézoome.</div>
+          <div class="modeHint">Indice : dézoom progressif</div>
+        </a>
+        <a class="mode" href="./play.html?mode=video">
+          <div class="modeTitle">Vidéo</div>
+          <div class="modeDesc">Extrait flouté → chaque essai défloute.</div>
+          <div class="modeHint">Indice : défloutage progressif</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Base de données</h2>
+      <p>
+        Le site marche avec <code>/data/characters.json</code> (+ <code>quotes.json</code>, <code>fruits.json</code>, etc.).
+        Dans ce dossier, je t’ai mis une base <b>démo</b> et des scripts pour générer une vraie base large (200+ persos)
+        depuis l’API publique <code>api.api-onepiece.com</code>. (CORS est désactivé côté API, donc on génère le JSON localement.)
+      </p>
+      <div class="note">
+        Tu peux déployer tel quel sur GitHub Pages, puis compléter les fichiers data/ et assets/ à ton rythme.
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Onepiecedle • static GitHub Pages</span>
+    <a href="./admin.html">Admin / Data checker</a>
+  </footer>
+</body>
+</html>

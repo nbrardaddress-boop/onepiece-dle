@@ -1,0 +1,9 @@
+{
+  "name": "onepiecedle-static",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:data": "node ./scripts/fetch_api_onepiece.mjs && node ./scripts/build_characters.mjs",
+    "serve": "npx http-server -p 8080"
+  }
+}

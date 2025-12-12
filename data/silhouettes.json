@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "character": "Monkey D. Luffy",
+    "src": "./assets/silhouettes/luffy.png"
+  },
+  {
+    "id": 2,
+    "character": "Roronoa Zoro",
+    "src": "./assets/silhouettes/zoro.png"
+  }
+]

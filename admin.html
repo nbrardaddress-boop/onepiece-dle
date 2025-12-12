@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Onepiecedle • admin</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a class="back" href="./index.html">←</a>
+      <div>
+        <div class="title">Admin / Data checker</div>
+        <div class="subtitle">Vérifie que tes JSON sont propres + petit aperçu</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Vérification</h2>
+      <div class="row gap">
+        <button id="checkBtn" class="btn">Check data</button>
+        <button id="exportBtn" class="btn ghost">Exporter erreurs (JSON)</button>
+      </div>
+      <pre class="pre" id="out">Clique sur “Check data”.</pre>
+    </section>
+
+    <section class="card">
+      <h2>Aperçu personnages</h2>
+      <div class="row gap">
+        <input id="filter" class="input" placeholder="Filtrer (nom, crew, fruit…)" />
+      </div>
+      <div id="tableWrap" class="tableWrap"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/admin.js"></script>
+</body>
+</html>

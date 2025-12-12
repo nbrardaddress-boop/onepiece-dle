@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "text": "Je deviendrai le Roi des Pirates !",
+    "speaker": "Monkey D. Luffy",
+    "recipients": [
+      "Tout le monde"
+    ],
+    "saga": "East Blue"
+  },
+  {
+    "id": 2,
+    "text": "Rien ne s’est passé.",
+    "speaker": "Roronoa Zoro",
+    "recipients": [
+      "Bartholomew Kuma"
+    ],
+    "saga": "Thriller Bark"
+  },
+  {
+    "id": 3,
+    "text": "Je veux vivre !",
+    "speaker": "Nico Robin",
+    "recipients": [
+      "Straw Hat Pirates"
+    ],
+    "saga": "Water 7"
+  },
+  {
+    "id": 4,
+    "text": "Je suis un homme qui veut faire partie de l’équipage du futur Roi des Pirates !",
+    "speaker": "Jinbe",
+    "recipients": [
+      "Big Mom"
+    ],
+    "saga": "Whole Cake Island"
+  }
+]

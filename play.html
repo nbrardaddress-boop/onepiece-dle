@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Onepiecedle • jouer</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a class="back" href="./index.html">←</a>
+      <div>
+        <div class="title" id="modeTitle">Onepiecedle</div>
+        <div class="subtitle" id="modeSub">Daily</div>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a class="pill" href="./play.html?mode=classic">Classic</a>
+      <a class="pill" href="./play.html?mode=fruit">Fruit</a>
+      <a class="pill" href="./play.html?mode=quote">Citation</a>
+      <a class="pill" href="./play.html?mode=silhouette">Silhouette</a>
+      <a class="pill" href="./play.html?mode=video">Vidéo</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="row gap">
+        <div class="grow">
+          <label class="label" for="guessInput">Ta proposition</label>
+          <input id="guessInput" class="input" list="namesList" placeholder="Ex: Monkey D. Luffy" autocomplete="off" />
+          <datalist id="namesList"></datalist>
+          <div class="help" id="helpLine"></div>
+        </div>
+        <button id="guessBtn" class="btn">Valider</button>
+      </div>
+      <div class="row gap small">
+        <button id="hintBtn" class="btn ghost">Afficher les indices disponibles</button>
+        <button id="resetBtn" class="btn danger ghost">Reset (local)</button>
+      </div>
+      <div id="stage"></div>
+    </section>
+
+    <section class="card">
+      <h3>Historique</h3>
+      <div class="help">Sauvegardé automatiquement dans ton navigateur (localStorage) pour ce mode + ce jour.</div>
+      <div id="history"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span id="footerLine"></span>
+    <a href="./admin.html">Admin / Data checker</a>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
