@@ -1,9 +1,0 @@
-body{margin:0;font-family:system-ui;background:#0b0d12;color:#e9eef6}
-.wrap{max-width:1200px;margin:auto;padding:16px}
-.top{position:sticky;top:0;background:#0b0d12;border-bottom:1px solid #22304a}
-.btn{border:1px solid #22304a;background:#0f1420;color:#e9eef6;border-radius:8px;padding:8px 12px}
-.columns,.row{display:grid;grid-template-columns:200px repeat(11,1fr);gap:6px}
-.cell{background:#121826;border:1px solid #22304a;border-radius:8px;padding:6px;text-align:center}
-.name{display:flex;gap:6px;align-items:center}
-.avatar{width:32px;height:32px;border-radius:6px;overflow:hidden;background:#0f1420}
-.avatar img{width:100%;height:100%;object-fit:cover}
