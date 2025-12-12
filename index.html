@@ -73,7 +73,7 @@ let guesses=load();
 renderGuesses(guesses);
 
 async function init(){
-  const res=await fetch("./data/characters.json");
+ const res = await fetch("characters.json?cache=" + Date.now());
   chars=await res.json();
   target=pickDaily(chars, dk);
 }
