@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OnePieceDLE</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap head">
+      <div>
+        <h1>OnePieceDLE</h1>
+        <p class="sub">Devine le personnage du jour avec des attributs 🟩🟨🟥</p>
+      </div>
+
+      <div class="actions">
+        <button id="newDaily" class="btn" type="button">Perso du jour</button>
+        <button id="newRandom" class="btn ghost" type="button">Aléatoire</button>
+        <button id="reset" class="btn danger" type="button">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="play">
+      <div class="guessRow">
+        <div class="guessBox">
+          <label for="guess">Ton guess</label>
+          <input id="guess" type="text" placeholder="Tape un nom (ex: Luffy, Zoro…)" autocomplete="off" />
+          <div id="suggest" class="suggest"></div>
+        </div>
+        <button id="submit" class="btn big" type="button">Valider</button>
+      </div>
+
+      <div id="msg" class="msg" aria-live="polite"></div>
+
+      <div class="legend">
+        <div class="chip ok">Correct</div>
+        <div class="chip mid">Partiel</div>
+        <div class="chip bad">Incorrect</div>
+        <div class="chip up">Supérieur</div>
+        <div class="chip down">Inférieur</div>
+      </div>
+    </section>
+
+    <section class="board">
+      <div class="tableWrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Personnage</th>
+              <th>Sexe</th>
+              <th>Race</th>
+              <th>Âge</th>
+              <th>Taille</th>
+              <th>Fruit</th>
+              <th>Haki</th>
+              <th>Prime</th>
+              <th>Origine</th>
+              <th>1ère apparition</th>
+              <th>Équipage</th>
+              <th>Rôle</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <small>
+      Données dans <code>characters.json</code>. Tu peux en ajouter autant que tu veux (tant que les champs restent identiques).
+    </small>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
