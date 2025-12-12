@@ -1,0 +1,1104 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "Perso 001",
+      "age": 55,
+      "role": "Étudiant",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 2,
+      "name": "Perso 002",
+      "age": 53,
+      "role": "Artisan",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 3,
+      "name": "Perso 003",
+      "age": 51,
+      "role": "Infirmier",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 4,
+      "name": "Perso 004",
+      "age": 49,
+      "role": "Serveur",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 5,
+      "name": "Perso 005",
+      "age": 47,
+      "role": "Prof",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 6,
+      "name": "Perso 006",
+      "age": 45,
+      "role": "Graphiste",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 7,
+      "name": "Perso 007",
+      "age": 43,
+      "role": "Agent de sécurité",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 8,
+      "name": "Perso 008",
+      "age": 41,
+      "role": "Livreur",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 9,
+      "name": "Perso 009",
+      "age": 39,
+      "role": "Musicien",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 10,
+      "name": "Perso 010",
+      "age": 37,
+      "role": "Comptable",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 11,
+      "name": "Perso 011",
+      "age": 35,
+      "role": "Barman",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 12,
+      "name": "Perso 012",
+      "age": 33,
+      "role": "Apprenti",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 13,
+      "name": "Perso 013",
+      "age": 31,
+      "role": "Chauffeur",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 14,
+      "name": "Perso 014",
+      "age": 29,
+      "role": "Photographe",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 15,
+      "name": "Perso 015",
+      "age": 27,
+      "role": "Cuisinier",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 16,
+      "name": "Perso 016",
+      "age": 25,
+      "role": "Sportif",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 17,
+      "name": "Perso 017",
+      "age": 23,
+      "role": "Bibliothécaire",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 18,
+      "name": "Perso 018",
+      "age": 21,
+      "role": "Développeur",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 19,
+      "name": "Perso 019",
+      "age": 19,
+      "role": "Éducateur",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 20,
+      "name": "Perso 020",
+      "age": 56,
+      "role": "Policier",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 21,
+      "name": "Perso 021",
+      "age": 54,
+      "role": "Lycéen",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 22,
+      "name": "Perso 022",
+      "age": 52,
+      "role": "Maire",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 23,
+      "name": "Perso 023",
+      "age": 50,
+      "role": "Avocat",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 24,
+      "name": "Perso 024",
+      "age": 48,
+      "role": "Journaliste",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 25,
+      "name": "Perso 025",
+      "age": 46,
+      "role": "Étudiant",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 26,
+      "name": "Perso 026",
+      "age": 44,
+      "role": "Artisan",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 27,
+      "name": "Perso 027",
+      "age": 42,
+      "role": "Infirmier",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 28,
+      "name": "Perso 028",
+      "age": 40,
+      "role": "Serveur",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 29,
+      "name": "Perso 029",
+      "age": 38,
+      "role": "Prof",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 30,
+      "name": "Perso 030",
+      "age": 36,
+      "role": "Graphiste",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 31,
+      "name": "Perso 031",
+      "age": 34,
+      "role": "Agent de sécurité",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 32,
+      "name": "Perso 032",
+      "age": 32,
+      "role": "Livreur",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 33,
+      "name": "Perso 033",
+      "age": 30,
+      "role": "Musicien",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 34,
+      "name": "Perso 034",
+      "age": 28,
+      "role": "Comptable",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 35,
+      "name": "Perso 035",
+      "age": 26,
+      "role": "Barman",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 36,
+      "name": "Perso 036",
+      "age": 24,
+      "role": "Apprenti",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 37,
+      "name": "Perso 037",
+      "age": 22,
+      "role": "Chauffeur",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 38,
+      "name": "Perso 038",
+      "age": 20,
+      "role": "Photographe",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 39,
+      "name": "Perso 039",
+      "age": 18,
+      "role": "Cuisinier",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 40,
+      "name": "Perso 040",
+      "age": 55,
+      "role": "Sportif",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 41,
+      "name": "Perso 041",
+      "age": 53,
+      "role": "Bibliothécaire",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 42,
+      "name": "Perso 042",
+      "age": 51,
+      "role": "Développeur",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 43,
+      "name": "Perso 043",
+      "age": 49,
+      "role": "Éducateur",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 44,
+      "name": "Perso 044",
+      "age": 47,
+      "role": "Policier",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 45,
+      "name": "Perso 045",
+      "age": 45,
+      "role": "Lycéen",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 46,
+      "name": "Perso 046",
+      "age": 43,
+      "role": "Maire",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 47,
+      "name": "Perso 047",
+      "age": 41,
+      "role": "Avocat",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 48,
+      "name": "Perso 048",
+      "age": 39,
+      "role": "Journaliste",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 49,
+      "name": "Perso 049",
+      "age": 37,
+      "role": "Étudiant",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 50,
+      "name": "Perso 050",
+      "age": 35,
+      "role": "Artisan",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 51,
+      "name": "Perso 051",
+      "age": 33,
+      "role": "Infirmier",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 52,
+      "name": "Perso 052",
+      "age": 31,
+      "role": "Serveur",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 53,
+      "name": "Perso 053",
+      "age": 29,
+      "role": "Prof",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 54,
+      "name": "Perso 054",
+      "age": 27,
+      "role": "Graphiste",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 55,
+      "name": "Perso 055",
+      "age": 25,
+      "role": "Agent de sécurité",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 56,
+      "name": "Perso 056",
+      "age": 23,
+      "role": "Livreur",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 57,
+      "name": "Perso 057",
+      "age": 21,
+      "role": "Musicien",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 58,
+      "name": "Perso 058",
+      "age": 19,
+      "role": "Comptable",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 59,
+      "name": "Perso 059",
+      "age": 56,
+      "role": "Barman",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 60,
+      "name": "Perso 060",
+      "age": 54,
+      "role": "Apprenti",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 61,
+      "name": "Perso 061",
+      "age": 52,
+      "role": "Chauffeur",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 62,
+      "name": "Perso 062",
+      "age": 50,
+      "role": "Photographe",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 63,
+      "name": "Perso 063",
+      "age": 48,
+      "role": "Cuisinier",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 64,
+      "name": "Perso 064",
+      "age": 46,
+      "role": "Sportif",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 65,
+      "name": "Perso 065",
+      "age": 44,
+      "role": "Bibliothécaire",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 66,
+      "name": "Perso 066",
+      "age": 42,
+      "role": "Développeur",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 67,
+      "name": "Perso 067",
+      "age": 40,
+      "role": "Éducateur",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 68,
+      "name": "Perso 068",
+      "age": 38,
+      "role": "Policier",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 69,
+      "name": "Perso 069",
+      "age": 36,
+      "role": "Lycéen",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 70,
+      "name": "Perso 070",
+      "age": 34,
+      "role": "Maire",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 71,
+      "name": "Perso 071",
+      "age": 32,
+      "role": "Avocat",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 72,
+      "name": "Perso 072",
+      "age": 30,
+      "role": "Journaliste",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 73,
+      "name": "Perso 073",
+      "age": 28,
+      "role": "Étudiant",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 74,
+      "name": "Perso 074",
+      "age": 26,
+      "role": "Artisan",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 75,
+      "name": "Perso 075",
+      "age": 24,
+      "role": "Infirmier",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 76,
+      "name": "Perso 076",
+      "age": 22,
+      "role": "Serveur",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 77,
+      "name": "Perso 077",
+      "age": 20,
+      "role": "Prof",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 78,
+      "name": "Perso 078",
+      "age": 18,
+      "role": "Graphiste",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 79,
+      "name": "Perso 079",
+      "age": 55,
+      "role": "Agent de sécurité",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 80,
+      "name": "Perso 080",
+      "age": 53,
+      "role": "Livreur",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 81,
+      "name": "Perso 081",
+      "age": 51,
+      "role": "Musicien",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 82,
+      "name": "Perso 082",
+      "age": 49,
+      "role": "Comptable",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 83,
+      "name": "Perso 083",
+      "age": 47,
+      "role": "Barman",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 84,
+      "name": "Perso 084",
+      "age": 45,
+      "role": "Apprenti",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 85,
+      "name": "Perso 085",
+      "age": 43,
+      "role": "Chauffeur",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 86,
+      "name": "Perso 086",
+      "age": 41,
+      "role": "Photographe",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 87,
+      "name": "Perso 087",
+      "age": 39,
+      "role": "Cuisinier",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 88,
+      "name": "Perso 088",
+      "age": 37,
+      "role": "Sportif",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 89,
+      "name": "Perso 089",
+      "age": 35,
+      "role": "Bibliothécaire",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 90,
+      "name": "Perso 090",
+      "age": 33,
+      "role": "Développeur",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    },
+    {
+      "id": 91,
+      "name": "Perso 091",
+      "age": 31,
+      "role": "Éducateur",
+      "tags": [
+        "calme",
+        "observateur"
+      ],
+      "description": "Toujours un carnet sur lui, il note tout ce qu’il voit."
+    },
+    {
+      "id": 92,
+      "name": "Perso 092",
+      "age": 29,
+      "role": "Policier",
+      "tags": [
+        "bricoleur",
+        "patient"
+      ],
+      "description": "Répare presque tout, mais déteste qu’on le presse."
+    },
+    {
+      "id": 93,
+      "name": "Perso 093",
+      "age": 27,
+      "role": "Lycéen",
+      "tags": [
+        "empathique",
+        "solide"
+      ],
+      "description": "Garde son sang-froid même quand ça part en vrille."
+    },
+    {
+      "id": 94,
+      "name": "Perso 094",
+      "age": 25,
+      "role": "Maire",
+      "tags": [
+        "rapide",
+        "sociable"
+      ],
+      "description": "Connaît les habitudes de tout le monde et adore discuter."
+    },
+    {
+      "id": 95,
+      "name": "Perso 095",
+      "age": 23,
+      "role": "Avocat",
+      "tags": [
+        "pédagogue",
+        "strict"
+      ],
+      "description": "Exigeant mais juste, il croit à fond au potentiel des autres."
+    },
+    {
+      "id": 96,
+      "name": "Perso 096",
+      "age": 21,
+      "role": "Journaliste",
+      "tags": [
+        "créatif",
+        "perfectionniste"
+      ],
+      "description": "Obsédé par les détails, surtout quand personne ne les voit."
+    },
+    {
+      "id": 97,
+      "name": "Perso 097",
+      "age": 19,
+      "role": "Étudiant",
+      "tags": [
+        "vigilant",
+        "discret"
+      ],
+      "description": "Parle peu, mais remarque absolument tout."
+    },
+    {
+      "id": 98,
+      "name": "Perso 098",
+      "age": 56,
+      "role": "Artisan",
+      "tags": [
+        "endurant",
+        "humour"
+      ],
+      "description": "Toujours une blague, même sous la pluie."
+    },
+    {
+      "id": 99,
+      "name": "Perso 099",
+      "age": 54,
+      "role": "Infirmier",
+      "tags": [
+        "passionné",
+        "nocturne"
+      ],
+      "description": "Vit la nuit, compose dès qu’une idée lui traverse la tête."
+    },
+    {
+      "id": 100,
+      "name": "Perso 100",
+      "age": 52,
+      "role": "Serveur",
+      "tags": [
+        "rigoureux",
+        "organisé"
+      ],
+      "description": "Aime quand tout est carré (vraiment tout)."
+    }
+  ]
+}

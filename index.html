@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DLE — Personnages</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>DLE — Personnages</h1>
+      <p class="sub">Liste + recherche (chargée depuis <code>characters.json</code>)</p>
+
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Rechercher (nom, rôle, tags…)" autocomplete="off" />
+        <select id="roleFilter">
+          <option value="">Tous les rôles</option>
+        </select>
+        <button id="reload" type="button">Recharger</button>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <footer class="wrap footer">
+    <small>Astuce: si tu modifies le JSON, clique “Recharger”.</small>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

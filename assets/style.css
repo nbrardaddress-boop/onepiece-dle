@@ -1,0 +1,82 @@
+:root{
+  --bg:#0b0d12;
+  --card:#121826;
+  --muted:#9aa4b2;
+  --text:#e9eef6;
+  --line:#22304a;
+  --chip:#1b2740;
+  --good:#47d18c;
+  --bad:#ff6b6b;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background:var(--bg);
+  color:var(--text);
+}
+
+.wrap{max-width:1100px;margin:0 auto;padding:18px}
+.top{
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(180deg, rgba(11,13,18,.98), rgba(11,13,18,.80));
+  border-bottom:1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+h1{margin:0 0 6px 0;font-size:22px}
+.sub{margin:0 0 14px 0;color:var(--muted);font-size:13px}
+code{background:#0f1420;border:1px solid var(--line);padding:2px 6px;border-radius:8px}
+
+.toolbar{
+  display:grid;
+  grid-template-columns: 1fr 220px 130px;
+  gap:10px;
+}
+input,select,button{
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#0f1420;
+  color:var(--text);
+  padding:10px 12px;
+  font-size:14px;
+  outline:none;
+}
+button{cursor:pointer}
+button:hover{border-color:#38507a}
+
+.status{margin-top:10px;color:var(--muted);font-size:13px}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap:12px;
+  padding-top:10px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.20);
+}
+.card h3{margin:0 0 6px 0;font-size:16px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.badge{
+  font-size:12px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:var(--chip);
+  border:1px solid var(--line);
+  color:var(--muted);
+}
+.desc{margin:0;color:var(--text);opacity:.92;font-size:13px;line-height:1.35}
+.tags{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;padding:4px 8px;border-radius:999px;background:#0f1420;border:1px solid var(--line);color:var(--muted)}
+
+.footer{color:var(--muted);padding-bottom:28px}
+
+@media (max-width:720px){
+  .toolbar{grid-template-columns: 1fr; }
+}
