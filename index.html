@@ -103,15 +103,15 @@ function renderGuesses(){
 }
 renderGuesses();
 
-/* ---------- Load data (robust GitHub Pages path) ---------- */
+/* ---------- Load data (FIX RACINE) ---------- */
 async function init(){
   const msg = document.getElementById("msg");
   msg.className = "";
   msg.textContent = "";
   try{
-    // Stable base folder URL (works with or without trailing slash)
-    const base = location.origin + location.pathname.replace(/\/[^\/]*$/, "/");
-    const url = base + "characters.json";
+    // ✅ Ton site est à la racine : https://TONPSEUDO.github.io/
+    // Donc on force un chemin ABSOLU vers /characters.json
+    const url = location.origin + "/characters.json";
 
     const res = await fetch(url, { cache: "no-store" });
     if(!res.ok) throw new Error("HTTP " + res.status + " en chargeant " + url);
