@@ -4,118 +4,81 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>OnePieceDLE — Classic</title>
-
   <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      margin: 24px;
-      max-width: 900px;
-    }
-    h1 { margin-bottom: 4px; }
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-    }
-    button { cursor: pointer; }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 12px;
-      margin: 10px 0;
-    }
-    .pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .pill {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: #fff;
-      white-space: nowrap;
-    }
-    .g { background: #16a34a; }
-    .r { background: #dc2626; }
-    .y { background: #eab308; color: #111; }
-
-    .opts button {
-      display: block;
-      width: 100%;
-      text-align: left;
-      margin-top: 6px;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      background: #fafafa;
-    }
-
-    #msg { color: #dc2626; margin-top: 8px; }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px;max-width:980px}
+    h1{margin:0 0 6px 0}
+    .sub{opacity:.75;margin:0 0 18px 0}
+    input,button{padding:10px;font-size:16px}
+    button{cursor:pointer}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    #q{flex:1;min-width:240px}
+    .card{border:1px solid #ddd;border-radius:12px;padding:12px;margin:12px 0}
+    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .pill{font-size:12px;padding:6px 10px;border-radius:999px;color:#fff;white-space:nowrap}
+    .g{background:#16a34a}
+    .r{background:#dc2626}
+    .y{background:#eab308;color:#111}
+    .opts button{display:block;width:100%;text-align:left;margin-top:6px;border:1px solid #eee;border-radius:12px;background:#fafafa}
+    #msg{white-space:pre-wrap;margin-top:10px;color:#b91c1c}
+    .ok{color:#15803d}
+    .muted{opacity:.7}
+    .topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .btnlink{background:transparent;border:none;padding:0;color:#2563eb;text-decoration:underline;cursor:pointer;font-size:14px}
   </style>
 </head>
-
 <body>
-  <h1>🏴‍☠️ OnePieceDLE — Classic</h1>
-  <p id="date"></p>
+  <div class="topbar">
+    <div>
+      <h1>🏴‍☠️ OnePieceDLE — Classic</h1>
+      <p class="sub" id="date"></p>
+    </div>
+    <div class="row">
+      <button class="btnlink" id="resetBtn" type="button">Reset (aujourd’hui)</button>
+    </div>
+  </div>
 
-  <form id="form">
+  <form id="form" class="row">
     <input id="q" placeholder="Tape un personnage…" autocomplete="off" />
     <button type="submit">OK</button>
   </form>
 
   <div class="opts" id="opts"></div>
-  <p id="msg"></p>
+  <div id="msg"></div>
 
   <h2>Essais</h2>
   <div id="guesses"></div>
 
 <script>
 /* ---------- Utils ---------- */
-const pad2 = n => n < 10 ? "0" + n : n;
+const pad2 = n => n < 10 ? "0"+n : ""+n;
 const dateKey = () => {
   const d = new Date();
   return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
 };
 const normalize = s =>
-  (s || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9 ]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
-function hash(str) {
-  let h = 2166136261;
-  for (let i = 0; i < str.length; i++) {
-    h ^= str.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
-function pickDaily(list, key) {
-  return list[hash("classic:" + key) % list.length];
-}
+  (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+  .replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0;}
+function pickDaily(list, key){return list[hash("classic:"+key)%list.length];}
 
 /* ---------- Comparisons ---------- */
-function pill(cls, label, value) {
-  return `<span class="pill ${cls}">${label}: ${value}</span>`;
+function pill(cls,label,value){return `<span class="pill ${cls}">${label}: ${value}</span>`;}
+function compText(label,g,t){
+  const gv = (g!==undefined && g!==null && g!=="") ? String(g) : "—";
+  const ok = (g!==undefined && t!==undefined && g!==null && t!==null && g!=="" && t!=="" && String(g)===String(t));
+  return pill(ok?"g":"r", label, gv);
 }
-function compText(label, g, t) {
-  const v = g || "—";
-  return pill(g && t && g === t ? "g" : "r", label, v);
+function compBool(label,g,t){
+  const gv = g===true?"Yes":"No";
+  const tv = t===true?"Yes":"No";
+  return pill(gv===tv?"g":"r", label, gv);
 }
-function compBool(label, g, t) {
-  const gv = g === true ? "Yes" : "No";
-  const tv = t === true ? "Yes" : "No";
-  return pill(gv === tv ? "g" : "r", label, gv);
-}
-function compAge(g, t) {
-  if (typeof g !== "number" || typeof t !== "number") {
-    return pill("r", "age", g ?? "?");
-  }
-  if (g === t) return pill("g", "age", g);
-  return pill("y", "age", `${g} ${g < t ? "↑" : "↓"}`);
+function compAge(g,t){
+  const gn = typeof g==="number" ? g : null;
+  const tn = typeof t==="number" ? t : null;
+  if(gn===null || tn===null) return pill("r","age", gn===null?"?":String(gn));
+  if(gn===tn) return pill("g","age", String(gn));
+  return pill("y","age", `${gn} ${gn<tn?"↑":"↓"}`);
 }
 
 /* ---------- State ---------- */
@@ -125,16 +88,13 @@ const storageKey = "classic:" + dk;
 
 let characters = [];
 let target = null;
-let guesses = JSON.parse(localStorage.getItem(storageKey) || "[]");
+let guesses = (()=>{try{return JSON.parse(localStorage.getItem(storageKey)||"[]")}catch{return []}})();
 
 /* ---------- Render ---------- */
-function renderGuesses() {
+function renderGuesses(){
   const box = document.getElementById("guesses");
-  if (guesses.length === 0) {
-    box.innerHTML = "<p>Aucun essai.</p>";
-    return;
-  }
-  box.innerHTML = guesses.map(g => `
+  if(guesses.length===0){box.innerHTML="<p class='muted'>Aucun essai.</p>"; return;}
+  box.innerHTML = guesses.map(g=>`
     <div class="card">
       <strong>${g.name}</strong>
       <div class="pills">${g.results.join("")}</div>
@@ -143,20 +103,30 @@ function renderGuesses() {
 }
 renderGuesses();
 
-/* ---------- Load data (CORRIGÉ) ---------- */
-async function init() {
-  try {
-    const url = new URL("characters.json", window.location.href);
-    const res = await fetch(url.toString());
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    characters = await res.json();
-    if (!Array.isArray(characters) || characters.length === 0) {
-      throw new Error("JSON vide ou invalide");
-    }
+/* ---------- Load data (robust GitHub Pages path) ---------- */
+async function init(){
+  const msg = document.getElementById("msg");
+  msg.className = "";
+  msg.textContent = "";
+  try{
+    // Stable base folder URL (works with or without trailing slash)
+    const base = location.origin + location.pathname.replace(/\/[^\/]*$/, "/");
+    const url = base + "characters.json";
+
+    const res = await fetch(url, { cache: "no-store" });
+    if(!res.ok) throw new Error("HTTP " + res.status + " en chargeant " + url);
+
+    const data = await res.json();
+    if(!Array.isArray(data) || data.length===0) throw new Error("characters.json est vide ou invalide.");
+
+    characters = data;
     target = pickDaily(characters, dk);
-  } catch (e) {
-    document.getElementById("msg").textContent =
-      "Erreur data : " + e.message;
+
+    msg.className = "ok";
+    msg.textContent = "✅ Base chargée (" + characters.length + " personnages).";
+  }catch(e){
+    msg.className = "";
+    msg.textContent = "Erreur data: " + (e?.message || e);
   }
 }
 init();
@@ -165,39 +135,49 @@ init();
 const q = document.getElementById("q");
 const opts = document.getElementById("opts");
 
-q.addEventListener("input", () => {
+q.addEventListener("input", ()=>{
   const v = normalize(q.value);
-  if (!v) { opts.innerHTML = ""; return; }
+  if(!v){opts.innerHTML=""; return;}
   const list = characters
-    .filter(c => normalize(c.name + " " + (c.name_alt || "")).includes(v))
-    .slice(0, 8);
-  opts.innerHTML = list.map(c =>
-    `<button type="button" data-id="${c.id}">${c.name}</button>`
-  ).join("");
+    .map(c=>{
+      const hay = normalize((c.name||"")+" "+(c.name_alt||"")+" "+(c.id||""));
+      const score = hay.includes(v) ? (hay.startsWith(v)?2:1) : 0;
+      return {c, score};
+    })
+    .filter(x=>x.score>0)
+    .sort((a,b)=>b.score-a.score || String(a.c.name).localeCompare(String(b.c.name)))
+    .slice(0,8)
+    .map(x=>x.c);
+
+  opts.innerHTML = list.map(c=>`<button type="button" data-id="${c.id}">${c.name}${c.name_alt?` — ${c.name_alt}`:""}</button>`).join("");
 });
 
-opts.addEventListener("click", e => {
+opts.addEventListener("click",(e)=>{
   const b = e.target.closest("button");
-  if (!b) return;
-  submit(characters.find(c => c.id === b.dataset.id));
-});
-
-/* ---------- Submit ---------- */
-document.getElementById("form").addEventListener("submit", e => {
-  e.preventDefault();
-  const v = normalize(q.value);
-  const c = characters.find(x => normalize(x.name) === v);
+  if(!b) return;
+  const c = characters.find(x=>x.id===b.dataset.id);
   submit(c);
 });
 
-function submit(c) {
-  document.getElementById("msg").textContent = "";
-  if (!c || !target) return;
+document.getElementById("form").addEventListener("submit",(e)=>{
+  e.preventDefault();
+  const v = normalize(q.value);
+  if(!v) return;
+  const c =
+    characters.find(x=>normalize(x.name)===v) ||
+    characters.find(x=>normalize(x.name_alt||"")===v) ||
+    characters.find(x=>normalize(x.id)===v) ||
+    characters.find(x=>normalize((x.name||"")+" "+(x.name_alt||"")+" "+(x.id||"")).includes(v));
+  submit(c);
+});
 
-  if (guesses.some(g => g.id === c.id)) {
-    document.getElementById("msg").textContent = "Déjà tenté.";
-    return;
-  }
+function submit(c){
+  const msg = document.getElementById("msg");
+  msg.className = "";
+  msg.textContent = "";
+  if(!target){ msg.textContent = "La base n'est pas chargée (characters.json)."; return; }
+  if(!c){ msg.textContent = "Personnage introuvable dans la base."; return; }
+  if(guesses.some(g=>g.id===c.id)){ msg.textContent = "Déjà tenté."; return; }
 
   const results = [
     compText("gender", c.gender, target.gender),
@@ -212,13 +192,18 @@ function submit(c) {
     compText("first_arc", c.first_arc, target.first_arc),
   ];
 
-  guesses.unshift({ id: c.id, name: c.name, results });
+  guesses.unshift({id:c.id, name:c.name, results});
   localStorage.setItem(storageKey, JSON.stringify(guesses));
   renderGuesses();
-
   q.value = "";
   opts.innerHTML = "";
 }
+
+document.getElementById("resetBtn").addEventListener("click", ()=>{
+  localStorage.removeItem(storageKey);
+  guesses = [];
+  renderGuesses();
+});
 </script>
 </body>
 </html>
