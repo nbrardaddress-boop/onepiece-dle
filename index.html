@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OnePieceDLE — Classic</title>
+  <style>
+    body{font-family:system-ui;margin:24px;max-width:900px}
+    input,button{padding:10px;font-size:16px}
+    .card{border:1px solid #ddd;border-radius:10px;padding:12px;margin:10px 0}
+    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .pill{font-size:12px;padding:6px 8px;border-radius:999px;color:#fff}
+    .g{background:#16a34a}.r{background:#dc2626}.y{background:#eab308;color:#111}
+    .opts button{display:block;width:100%;text-align:left;margin-top:6px;border:1px solid #eee;border-radius:10px;background:#fafafa}
+  </style>
+</head>
+<body>
+  <h1>🏴‍☠️ OnePieceDLE — Classic</h1>
+  <p id="date"></p>
+
+  <form id="form">
+    <input id="q" placeholder="Tape un personnage…" autocomplete="off" />
+    <button>OK</button>
+  </form>
+
+  <div class="opts" id="opts"></div>
+  <p id="msg" style="color:#dc2626"></p>
+
+  <h2>Essais</h2>
+  <div id="guesses"></div>
+
+<script>
+const pad2=n=>n<10?`0${n}`:`${n}`;
+const dateKey=()=>{const d=new Date();return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;}
+const normalize=s=>(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0;}
+function pickDaily(chars, dk){return chars[hash("classic:"+dk)%chars.length];}
+
+function pill(state, label, value){
+  const cls = state==="green"?"g":state==="red"?"r":"y";
+  return `<span class="pill ${cls}">${label}: ${value}</span>`;
+}
+function compText(label,g,t){
+  const v=g||"—"; return {label, html: pill((g&&t&&g===t)?"green":"red", label, v)};
+}
+function compBool(label,g,t){
+  const gv = g===true?"Yes":"No", tv=t===true?"Yes":"No";
+  return {label, html: pill(gv===tv?"green":"red", label, gv)};
+}
+function compAge(g,t){
+  const gn=Number.isFinite(g)?g:null, tn=Number.isFinite(t)?t:null;
+  if(gn===null||tn===null) return {label:"age", html: pill("red","age", gn===null?"?":String(gn))};
+  if(gn===tn) return {label:"age", html: pill("green","age", String(gn))};
+  return {label:"age", html: pill("y","age", `${gn} ${gn<tn?"↑":"↓"}`)};
+}
+
+let chars=[], target=null;
+const dk=dateKey();
+document.getElementById("date").textContent="Date : "+dk;
+const storageKey="classic:"+dk;
+
+function renderGuesses(list){
+  const box=document.getElementById("guesses");
+  box.innerHTML = list.map(g=>{
+    const pillsHtml=g.results.map(r=>r.html).join("");
+    return `<div class="card"><b>${g.name}</b><div class="pills">${pillsHtml}</div></div>`;
+  }).join("") || "<p>Aucun essai.</p>";
+}
+function save(list){localStorage.setItem(storageKey, JSON.stringify(list));}
+function load(){try{return JSON.parse(localStorage.getItem(storageKey)||"[]")}catch{return []}}
+
+let guesses=load();
+renderGuesses(guesses);
+
+async function init(){
+  const res=await fetch("./data/characters.json");
+  chars=await res.json();
+  target=pickDaily(chars, dk);
+}
+init().catch(e=>document.getElementById("msg").textContent="Erreur data: "+e.message);
+
+const q=document.getElementById("q");
+const opts=document.getElementById("opts");
+q.addEventListener("input", ()=>{
+  const v=normalize(q.value);
+  if(!v){opts.innerHTML="";return;}
+  const list=chars.filter(c=>normalize(c.name+" "+(c.name_alt||"")+" "+c.id).includes(v)).slice(0,8);
+  opts.innerHTML=list.map(c=>`<button type="button" data-id="${c.id}">${c.name}${c.name_alt?" — "+c.name_alt:""}</button>`).join("");
+});
+opts.addEventListener("click",(e)=>{
+  const b=e.target.closest("button"); if(!b) return;
+  const id=b.dataset.id; const c=chars.find(x=>x.id===id);
+  submit(c);
+});
+document.getElementById("form").addEventListener("submit",(e)=>{
+  e.preventDefault();
+  const v=normalize(q.value);
+  const c=chars.find(x=>normalize(x.name)===v) || chars.find(x=>normalize(x.name_alt||"")===v) || chars.find(x=>normalize(x.id)===v);
+  submit(c);
+});
+function submit(c){
+  document.getElementById("msg").textContent="";
+  if(!c){document.getElementById("msg").textContent="Personnage introuvable.";return;}
+  if(guesses.some(g=>g.id===c.id)){document.getElementById("msg").textContent="Déjà tenté.";return;}
+  const r=[];
+  r.push(compText("gender", c.gender||"?", target.gender||"?"));
+  r.push(compAge(c.age, target.age));
+  r.push(compText("role", c.role_main||"", target.role_main||""));
+  r.push(compText("status", c.status||"", target.status||""));
+  r.push(compText("affiliation", c.affiliation||"", target.affiliation||""));
+  r.push(compBool("fruit", c.devil_fruit_has, target.devil_fruit_has));
+  r.push(compText("fruit_type", c.devil_fruit_type||"—", target.devil_fruit_type||"—"));
+  r.push(compText("haki", c.haki||"—", target.haki||"—"));
+  r.push(compText("sea", c.sea_origin||"", target.sea_origin||""));
+  r.push(compText("first_arc", c.first_arc||"", target.first_arc||""));
+
+  guesses=[{id:c.id,name:c.name,results:r},...guesses];
+  save(guesses);
+  renderGuesses(guesses);
+  q.value=""; opts.innerHTML="";
+}
+</script>
+</body>
+</html>
