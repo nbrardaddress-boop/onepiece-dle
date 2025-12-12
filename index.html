@@ -3,117 +3,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OnePieceDLE — Classic</title>
+  <title>OnePieceDLE — Debug</title>
   <style>
-    body{font-family:system-ui;margin:24px;max-width:900px}
-    input,button{padding:10px;font-size:16px}
-    .card{border:1px solid #ddd;border-radius:10px;padding:12px;margin:10px 0}
-    .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .pill{font-size:12px;padding:6px 8px;border-radius:999px;color:#fff}
-    .g{background:#16a34a}.r{background:#dc2626}.y{background:#eab308;color:#111}
-    .opts button{display:block;width:100%;text-align:left;margin-top:6px}
-    #msg{margin-top:10px}
+    body{font-family:system-ui;margin:24px;max-width:1000px}
+    pre{white-space:pre-wrap;background:#111;color:#eee;padding:12px;border-radius:12px}
+    .ok{color:#15803d;font-weight:700}
+    .bad{color:#b91c1c;font-weight:700}
   </style>
 </head>
 <body>
+  <h1>OnePieceDLE — Debug JSON</h1>
+  <p>On teste juste le chargement de <code>characters.json</code>.</p>
 
-<h1>🏴‍☠️ OnePieceDLE — Classic</h1>
-<p id="date"></p>
-
-<form id="form">
-  <input id="q" placeholder="Tape un personnage…" autocomplete="off">
-  <button>OK</button>
-</form>
-
-<div class="opts" id="opts"></div>
-<p id="msg"></p>
-
-<h2>Essais</h2>
-<div id="guesses"></div>
+  <div id="status"></div>
+  <pre id="log">Chargement…</pre>
 
 <script>
-/* utils */
-const normalize=s=>(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
-const pad=n=>n<10?"0"+n:n;
-const today=()=>{const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
-function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0;}
+(async function(){
+  const status = document.getElementById("status");
+  const log = document.getElementById("log");
 
-const dk=today();
-document.getElementById("date").textContent="Date : "+dk;
-const storageKey="classic:"+dk;
+  try {
+    // ✅ le plus robuste: fichier au même niveau que index.html
+    const url = "characters.json?cache=" + Date.now();
+    const res = await fetch(url, { cache: "no-store" });
 
-let characters=[], target=null;
-let guesses=JSON.parse(localStorage.getItem(storageKey)||"[]");
+    const text = await res.text();
 
-/* rendu */
-function pill(c,l,v){return `<span class="pill ${c}">${l}: ${v}</span>`;}
-function render(){
-  document.getElementById("guesses").innerHTML =
-    guesses.map(g=>`
-      <div class="card">
-        <strong>${g.name}</strong>
-        <div class="pills">${g.results.join("")}</div>
-      </div>`).join("") || "<p>Aucun essai.</p>";
-}
-render();
+    status.className = res.ok ? "ok" : "bad";
+    status.textContent = `HTTP ${res.status} — URL: ${location.href.replace(/index\\.html?$/,'')}${url}`;
 
-/* LOAD JSON — CHEMIN CORRECT POUR REPO PROJET */
-async function init(){
-  const msg=document.getElementById("msg");
-  try{
-    const url = location.origin + location.pathname.replace(/\/$/, "") + "/characters.json";
-    const res = await fetch(url);
-    if(!res.ok) throw new Error("HTTP "+res.status);
-    characters = await res.json();
-    target = characters[hash("classic:"+dk)%characters.length];
-    msg.textContent="✅ Base chargée ("+characters.length+" personnages)";
-  }catch(e){
-    msg.textContent="❌ Erreur data : "+e.message;
+    log.textContent =
+      "Début de la réponse (300 premiers caractères) :\n\n" +
+      text.slice(0, 300) +
+      "\n\n---\nLongueur totale: " + text.length + " caractères";
+
+    if (!res.ok) throw new Error("HTTP " + res.status);
+
+    // tentative parse JSON
+    const data = JSON.parse(text);
+
+    if (!Array.isArray(data)) throw new Error("Le JSON n'est pas un tableau (il doit commencer par [ )");
+    if (data.length === 0) throw new Error("Le tableau JSON est vide");
+
+    status.className = "ok";
+    status.textContent = `✅ OK — JSON chargé (${data.length} personnages)`;
+  } catch (e) {
+    status.className = "bad";
+    status.textContent = "❌ ERREUR — " + (e?.message || e);
   }
-}
-init();
-
-/* autocomplete */
-const q=document.getElementById("q");
-const opts=document.getElementById("opts");
-
-q.addEventListener("input",()=>{
-  const v=normalize(q.value);
-  if(!v){opts.innerHTML="";return;}
-  opts.innerHTML=characters
-    .filter(c=>normalize(c.name).includes(v))
-    .slice(0,8)
-    .map(c=>`<button type="button" data-id="${c.id}">${c.name}</button>`)
-    .join("");
-});
-
-opts.addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b) return;
-  submit(characters.find(c=>c.id===b.dataset.id));
-});
-
-/* submit */
-document.getElementById("form").addEventListener("submit",e=>{
-  e.preventDefault();
-  submit(characters.find(c=>normalize(c.name)===normalize(q.value)));
-});
-
-function submit(c){
-  const msg=document.getElementById("msg");
-  if(!c||!target){msg.textContent="Erreur perso";return;}
-  if(guesses.some(g=>g.id===c.id)){msg.textContent="Déjà tenté";return;}
-
-  const r=[];
-  r.push(pill(c.gender===target.gender?"g":"r","gender",c.gender));
-  r.push(pill(c.role_main===target.role_main?"g":"r","role",c.role_main));
-  r.push(pill(c.affiliation===target.affiliation?"g":"r","crew",c.affiliation));
-
-  guesses.unshift({id:c.id,name:c.name,results:r});
-  localStorage.setItem(storageKey,JSON.stringify(guesses));
-  render();
-  q.value=""; opts.innerHTML="";
-}
+})();
 </script>
-
 </body>
 </html>
